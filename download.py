@@ -13,4 +13,4 @@ def		get_video_info(url)
 	r = None
 	ydl = youtube_dl.YoutubeDL(options)
 	with ydl:
-		r = ydl.extract_info(url, download=False)  
+		r = ydl.extract_info(url, download=False) 
