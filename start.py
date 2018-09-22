@@ -21,22 +21,8 @@ def echo_message(message):
 	if a == None:
 		bot.reply_to(message, "Can't extract audio info")
 	else:
-		keyboard = types.InlineKeyboardMarkup()
-		yes = types.InlineKeyboardButton(text="Download", callback_data = 'yes ' + url)
-		no = types.InlineKeyboardButton(text="Cancel", callback_data = 'no ')
-		keyboard.add(yes, no)
-		bot.send_message(chat_id, a, reply_markup=keyboard)
-
-@bot.callback_query_handler(func=lambda call: True)
-def callback_inline(call):
-	chat_id = call.message.chat.id
-	if call.message:
-		a = call.data.split()
-		if a[0] == 'yes':
-			a = download.get_audio(a[1])
-			audio = open('{0}.mp3'.format(a), 'rb')
-			bot.send_audio(chat_id, audio)
-			os.remove('{}.mp3'.format(a))
-		else:
-			pass
+		b = download.get_audio(url)
+		audio = open('{0}.mp3'.format(b), 'rb')
+		bot.send_audio(chat_id, audio)
+		os.remove('{}.mp3'.format(b))
 bot.polling()
