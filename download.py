@@ -3,7 +3,6 @@ import traceback
 import pdb
 import os
 
-
 def		get_video_info(url):
 	ydl = youtube_dl.YoutubeDL()
 	try:

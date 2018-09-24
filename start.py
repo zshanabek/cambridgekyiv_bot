@@ -22,7 +22,7 @@ def echo_message(message):
 		bot.reply_to(message, "Can't extract audio info")
 	else:
 		b = download.get_audio(url)
-		audio = open('{0}.mp3'.format(b), 'rb')
-		bot.send_audio(chat_id, audio)
+		file_id = open('{0}.mp3'.format(b), 'rb')
+		bot.send_audio(chat_id, file_id, timeout=50)
 		os.remove('{}.mp3'.format(b))
 bot.polling()
