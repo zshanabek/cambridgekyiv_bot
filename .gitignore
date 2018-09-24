@@ -3,4 +3,4 @@ __pycache__/
 venv
 *.m4a
 *.mp3
-config.py
+*.pyc
